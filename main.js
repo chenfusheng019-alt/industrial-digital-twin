@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://AP电脑IP:9002");
+const ws = new WebSocket("ws://AP电脑IP:192.168.1.105");
 
 ws.onopen = () => {
   document.getElementById("status").innerText = "系统状态：已连接";
