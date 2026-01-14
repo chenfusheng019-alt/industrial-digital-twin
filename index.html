@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <title>工业数字孪生平台</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #camera {
+      width: 480px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
+
   <h1>机械臂数字孪生控制台</h1>
 
+  <!-- WebSocket 状态 -->
   <p id="status">系统状态：未连接</p>
 
+  <!-- 控制 -->
   <button onclick="sendCmd()">发送测试指令</button>
 
+  <!-- 关节状态 -->
+  <h3>机械臂关节状态</h3>
+  <div id="joints">等待数据...</div>
+
+  <!-- 图像 -->
+  <h3>机械臂图像</h3>
+  <img id="camera" />
+
+  <!-- 原始数据（可选） -->
+  <h3>原始数据</h3>
   <pre id="data"></pre>
 
   <script src="js/main.js"></script>
