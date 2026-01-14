@@ -52,3 +52,19 @@ function updateImage(base64Img) {
     const img = document.getElementById("camera");
     img.src = "data:image/jpeg;base64," + base64Img;
 }
+// ===============================
+// 6️⃣ 发送测试控制指令
+// ===============================
+function sendCmd() {
+    if (ws.readyState === WebSocket.OPEN) {
+        const cmd = {
+            type: "manual_cmd",
+            action: "test_move",
+            value: 1
+        };
+        ws.send(JSON.stringify(cmd));
+        console.log("📤 已发送测试指令");
+    } else {
+        console.warn("⚠️ WebSocket 未连接，无法发送指令");
+    }
+}
