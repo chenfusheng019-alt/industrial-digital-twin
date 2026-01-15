@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试页面</title>
+</head>
+<body>
+    <h1>机械臂监控系统测试</h1>
+    <p>如果能看到这个页面，说明GitHub Pages工作正常。</p>
+    <p>后端IP: <span id="ip">192.168.1.105</span></p>
+    <p>当前时间: <span id="time"></span></p>
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleString();
+        // 测试后端连接
+        fetch('http://192.168.1.105:8000/state')
+            .then(response => response.json())
+            .then(data => {
+                console.log('后端状态:', data);
+                alert('后端连接成功！模式：' + data.mode);
+            })
+            .catch(error => {
+                console.error('连接错误:', error);
+                alert('后端连接失败，请检查服务是否运行');
+            });
+    </script>
+</body>
+</html>
